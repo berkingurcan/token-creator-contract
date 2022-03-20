@@ -10,9 +10,11 @@ contract Token is ERC20 {
 }
 
 contract TokenFactory {
+    uint public counter = 0;
     Token[] public tokens;
     function create(string memory _TokenName, string memory _TokenSymbol, uint _amount) public {
         Token token = new Token(_TokenName, _TokenSymbol, _amount);
         tokens.push(token);
+        counter += 1;
     }
 }
